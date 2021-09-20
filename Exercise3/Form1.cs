@@ -23,21 +23,22 @@ namespace Exercise3
 
             btnDivide.Text = "/";
             btnDivide.Click += new EventHandler(CalculationHandler);
-            
+
         }
 
-        
+
 
         private void CalculationHandler(object sender, EventArgs e)
         {
-            Button btn = sender as Button;
-            string operation = btn.Text;
-            int number1 = int.Parse(textBox1.Text);
-            int number2 = int.Parse(textBox2.Text);
-            int answer = 0;
-
             try
             {
+                Button btn = sender as Button;
+                string operation = btn.Text;
+                int number1 = int.Parse(textBox1.Text);
+                int number2 = int.Parse(textBox2.Text);
+                int answer = 0;
+
+
                 switch (operation)
                 {
                     case "/":
