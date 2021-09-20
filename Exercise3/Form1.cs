@@ -25,7 +25,6 @@ namespace Exercise3
             btnDivide.Click += new EventHandler(CalculationHandler);
 
             //Vi vill kontrollera textboxen, så att endast 0-9 kan accepteras
-            //textBox1.KeyDown += new KeyEventHandler(KeyControl);
             textBox1.KeyPress += new KeyPressEventHandler(KeyPressControl);
         }
 
@@ -42,19 +41,6 @@ namespace Exercise3
                 {
                     e.Handled = true;
                 }
-            }
-        }
-
-        private void KeyControl(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9)
-            {
-                //If not a number, we end up here
-                MessageBox.Show("not a number: " + e.KeyCode.ToString());
-            }
-            else
-            {
-                MessageBox.Show(e.KeyCode.ToString());
             }
         }
 
