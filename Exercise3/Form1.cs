@@ -36,25 +36,29 @@ namespace Exercise3
             int number2 = int.Parse(textBox2.Text);
             int answer = 0;
 
-            switch (operation)
+            try
             {
-                case "/":
-                    try
-                    {
+                switch (operation)
+                {
+                    case "/":
                         answer = MyEngine.Divide(number1, number2);
-                    }
-                    catch (Exception anka)
-                    {
+                        break;
 
-                        MessageBox.Show("Oops: " + anka.Message);
-                    }
-                    break;
+                    default:
+                        break;
+                }
 
-                default:
-                    break;
+                PresentResult(number1, number2, answer, operation);
             }
-
-            PresentResult(number1, number2, answer, operation);
+            catch (DivideByZeroException)
+            {
+                MessageBox.Show("Oops, 0 är inte tillåtet");
+                textBox2.Focus();
+            }
+            catch (Exception anka)
+            {
+                MessageBox.Show("Annat fel: " + anka.Message);
+            }
         }
 
         //Add
