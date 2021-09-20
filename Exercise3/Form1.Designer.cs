@@ -33,6 +33,7 @@ namespace Exercise3
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnMultiply = new System.Windows.Forms.Button();
+            this.btnDivide = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -69,11 +70,21 @@ namespace Exercise3
             this.btnMultiply.UseVisualStyleBackColor = true;
             this.btnMultiply.Click += new System.EventHandler(this.btnMultiply_Click);
             // 
+            // btnDivide
+            // 
+            this.btnDivide.Location = new System.Drawing.Point(428, 393);
+            this.btnDivide.Name = "btnDivide";
+            this.btnDivide.Size = new System.Drawing.Size(131, 106);
+            this.btnDivide.TabIndex = 4;
+            this.btnDivide.Text = "button2";
+            this.btnDivide.UseVisualStyleBackColor = true;
+            // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 604);
+            this.Controls.Add(this.btnDivide);
             this.Controls.Add(this.btnMultiply);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -91,6 +102,7 @@ namespace Exercise3
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btnMultiply;
+        private System.Windows.Forms.Button btnDivide;
     }
 }
 

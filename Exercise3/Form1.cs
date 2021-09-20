@@ -21,7 +21,40 @@ namespace Exercise3
             button1.Text = "+";
             btnMultiply.Text = "*";
 
+            btnDivide.Text = "/";
+            btnDivide.Click += new EventHandler(CalculationHandler);
+            
+        }
 
+        
+
+        private void CalculationHandler(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            string operation = btn.Text;
+            int number1 = int.Parse(textBox1.Text);
+            int number2 = int.Parse(textBox2.Text);
+            int answer = 0;
+
+            switch (operation)
+            {
+                case "/":
+                    try
+                    {
+                        answer = MyEngine.Divide(number1, number2);
+                    }
+                    catch (Exception anka)
+                    {
+
+                        MessageBox.Show("Oops: " + anka.Message);
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+
+            PresentResult(number1, number2, answer, operation);
         }
 
         //Add
@@ -56,5 +89,16 @@ namespace Exercise3
 
             PresentResult(i, j, answer, (sender as Button).Text);
         }
+
+        private void btnDivide_Click(object sender, EventArgs e)
+        {
+            int i = int.Parse(textBox1.Text);
+            int j = int.Parse(textBox2.Text);
+
+            int answer = MyEngine.Divide(i, j);
+
+            PresentResult(i, j, answer, (sender as Button).Text);
+        }
+
     }
 }
