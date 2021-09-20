@@ -24,21 +24,50 @@ namespace Exercise3
             btnDivide.Text = "/";
             btnDivide.Click += new EventHandler(CalculationHandler);
 
+            //Vi vill kontrollera textboxen, så att endast 0-9 kan accepteras
+            //textBox1.KeyDown += new KeyEventHandler(KeyControl);
+            textBox1.KeyPress += new KeyPressEventHandler(KeyPressControl);
         }
 
+        private void KeyPressControl(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar < '0' || e.KeyChar > '9')
+            {
+                //Not a number
+                //hmm we need to handle Backspace
 
+                //Handled avbryter flödet till textboxen,
+                //genom att lura den att det redan är hanterat
+                if (((short)e.KeyChar) != 8)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void KeyControl(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9)
+            {
+                //If not a number, we end up here
+                MessageBox.Show("not a number: " + e.KeyCode.ToString());
+            }
+            else
+            {
+                MessageBox.Show(e.KeyCode.ToString());
+            }
+        }
 
         private void CalculationHandler(object sender, EventArgs e)
         {
+            Button btn = sender as Button;
+            string operation = btn.Text;
+            int number1 = int.Parse(textBox1.Text);
+            int number2 = int.Parse(textBox2.Text);
+            int answer = 0;
+
             try
             {
-                Button btn = sender as Button;
-                string operation = btn.Text;
-                int number1 = int.Parse(textBox1.Text);
-                int number2 = int.Parse(textBox2.Text);
-                int answer = 0;
-
-
                 switch (operation)
                 {
                     case "/":
