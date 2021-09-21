@@ -48,9 +48,9 @@ namespace Exercise3
         {
             Button btn = sender as Button;
             string operation = btn.Text;
-            int number1 = int.Parse(textBox1.Text);
-            int number2 = int.Parse(textBox2.Text);
-            int answer = 0;
+            double number1 = double.Parse(textBox1.Text);
+            double number2 = double.Parse(textBox2.Text);
+            double answer = 0;
 
             try
             {
@@ -84,10 +84,10 @@ namespace Exercise3
             //2-beräkna
             //3-presentera resultatet
 
-            int i = int.Parse(textBox1.Text);
-            int j = int.Parse(textBox2.Text);
+            double i = double.Parse(textBox1.Text);
+            double j = double.Parse(textBox2.Text);
 
-            int answer = MyEngine.Add(i, j);
+            double answer = MyEngine.Add(i, j);
 
             //Button b = sender as Button; //Omvandlar sender från object -> button
             //b.Text
@@ -95,27 +95,27 @@ namespace Exercise3
             PresentResult(i, j, answer, (sender as Button).Text);
         }
 
-        private static void PresentResult(int i, int j, int answer, string operation)
+        private static void PresentResult(double i, double j, double answer, string operation)
         {
             MessageBox.Show($"{i} {operation} {j} = {answer}");
         }
 
         private void btnMultiply_Click(object sender, EventArgs e)
         {
-            int i = int.Parse(textBox1.Text);
-            int j = int.Parse(textBox2.Text);
+            double i = double.Parse(textBox1.Text);
+            double j = double.Parse(textBox2.Text);
 
-            int answer = MyEngine.Multiply(i, j);
+            double answer = MyEngine.Multiply(i, j);
 
             PresentResult(i, j, answer, (sender as Button).Text);
         }
 
         private void btnDivide_Click(object sender, EventArgs e)
         {
-            int i = int.Parse(textBox1.Text);
-            int j = int.Parse(textBox2.Text);
+            double i = double.Parse(textBox1.Text);
+            double j = double.Parse(textBox2.Text);
 
-            int answer = MyEngine.Divide(i, j);
+            double answer = MyEngine.Divide(i, j);
 
             PresentResult(i, j, answer, (sender as Button).Text);
         }
