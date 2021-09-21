@@ -34,6 +34,14 @@ namespace Exercise4
 
                     });
 
+            //Anonym metod, men nu med Lambda/Arrow Syntax
+            button5.Click += new EventHandler(
+                    (anka, swan) =>
+                    {
+                        MessageBox.Show($"{(anka as Button).Text} Clicked!");
+                    }
+                );
+
         }
 
         private void ButtonHandler(object sender, EventArgs e)
